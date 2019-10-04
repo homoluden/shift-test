@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :reports
   root 'home#index'
 
   # TODO: think about providing REST API for React components (maybe prefixed w/ 'api' term)
