@@ -25,6 +25,11 @@ class ReportsController < ApplicationController
   # POST /reports.json
   def create
     @report = Report.new(report_params)
+    @report.file_meta = {
+      mime_type: @report.file.blob.content_type,
+      original_filename: @report.file.blob.filename,
+      size: @report.file.blob.byte_size,
+    }
 
     respond_to do |format|
       if @report.save
