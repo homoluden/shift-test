@@ -23,22 +23,40 @@ class ReportListPager extends React.Component {
         }
     }
 
-    handleUpdateReports = () => {
+    changePage = ({ target: { value } }) => {
+        this.setState(
+            { page: value },
+            () => {
+                this.dispatchUpdateReports();
+            }
+        );
+    }
+
+    changePageSize = ({ target: { value } }) => {
+        this.setState(
+            { perPage: value },
+            () => {
+                this.dispatchUpdateReports();
+            }
+        );
+    }
+
+    dispatchUpdateReports = () => {
         const { loadReports } = this.props;
-        loadReports({page: 1, perPage: 10});
+        loadReports({page: this.state.page, perPage: this.state.perPage});
     }
 
     componentDidMount() {
-        this.handleUpdateReports();
+        this.dispatchUpdateReports();
     }
 
     render() {
         return (
             <div className={style.reportsPagerRoot}>
                 <span>Page: </span>
-                <input value={this.state.page} />
+                <input value={this.state.page} onChange={this.changePage} />
                 <span>Page Size: </span>
-                <input value={this.state.perPage} />
+                <input value={this.state.perPage} onChange={this.changePageSize} />
             </div>
         );
     }
