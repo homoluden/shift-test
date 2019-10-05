@@ -1,7 +1,7 @@
 import { SET_REPORTS } from "../actionTypes";
 
 const initialState = {
-  reports: []
+  list: []
 };
 
 export default function(state = initialState, action) {
@@ -10,7 +10,7 @@ export default function(state = initialState, action) {
       const { reports } = action.payload;
       return {
         ...state,
-        reports
+        list: reports
       };
     }
     default:

@@ -7,14 +7,14 @@ export const setReports = ({reports}) => ({
   }
 })
 
-export const loadReports = ({pageIdx, pageSize}) => {
+export const loadReports = ({page, perPage}) => {
   return (dispatch) => {
-    return fetch(`/reports.json?page=${pageIdx+1}&per_page=${pageSize}`)
+    return fetch(`/reports.json?page=${page}&per_page=${perPage}`)
     .then(response => {
       return response.json();
     })
-    .then(reports => {
-      dispatch(setReports(reports));
+    .then((reports) => {
+      dispatch(setReports({ reports }));
     });
   };
 };

@@ -1,0 +1,9 @@
+.reportsListRoot {
+    display: flex;
+    flex-direction: column;
+}
+
+.reportsPagerRoot {
+    display: flex;
+    flex-direction: row;
+}
