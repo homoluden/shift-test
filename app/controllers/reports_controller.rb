@@ -27,8 +27,7 @@ class ReportsController < ApplicationController
   # POST /reports.json
   def create
     @report = Report.new(report_params)
-    upd_file_meta
-
+    helpers.upd_file_meta()
     respond_to do |format|
       if @report.save
         format.html { redirect_to @report, notice: 'Report was successfully created.' }
@@ -43,7 +42,7 @@ class ReportsController < ApplicationController
   # PATCH/PUT /reports/1
   # PATCH/PUT /reports/1.json
   def update
-    upd_file_meta
+    helpers.upd_file_meta(@report)
     respond_to do |format|
       if @report.update(report_params)
         format.html { redirect_to @report, notice: 'Report was successfully updated.' }
@@ -66,18 +65,6 @@ class ReportsController < ApplicationController
   end
 
   private
-    # Set file_meta data
-    def upd_file_meta
-      @report.file_meta = {}
-      if @report.file.attached?
-        @report.file_meta = {
-          mime_type: @report.file.blob.content_type,
-          original_filename: @report.file.blob.filename,
-          size: @report.file.blob.byte_size,
-        }
-      end
-    end
-
     # Inject report to View Bag
     def set_report
       @report = Report.find(params[:id])
