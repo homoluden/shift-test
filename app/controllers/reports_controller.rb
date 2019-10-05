@@ -25,11 +25,13 @@ class ReportsController < ApplicationController
   # POST /reports.json
   def create
     @report = Report.new(report_params)
-    @report.file_meta = {
-      mime_type: @report.file.blob.content_type,
-      original_filename: @report.file.blob.filename,
-      size: @report.file.blob.byte_size,
-    }
+    if @report.file.attached?
+      @report.file_meta = {
+        mime_type: @report.file.blob.content_type,
+        original_filename: @report.file.blob.filename,
+        size: @report.file.blob.byte_size,
+      }
+    end
 
     respond_to do |format|
       if @report.save
