@@ -64,3 +64,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Webpack + React
 gem 'webpacker'
 gem 'foreman'
+gem 'will_paginate', '>= 3.1'
