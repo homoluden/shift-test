@@ -11,7 +11,7 @@ const ReportListPresenter = props => {
     return (
         <ul>
             {props.reports.list.map(r => (
-                <li>{r.title}</li>
+                <li key={`report${r.id}`}>{r.title}</li>
             ))}
         </ul>
     );
