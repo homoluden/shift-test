@@ -14,6 +14,7 @@
     <% if current_user %>
       Logged in as <%= current_user.email %>.
       <%= link_to "Log Out", logout_path %>
+      <br>
       <%= yield %>
     <% else %>
       <% if current_page?(login_path) %>
