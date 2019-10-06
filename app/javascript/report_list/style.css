@@ -1,11 +1,3 @@
-
-h1 {
-    width: 100%;
-    text-align: center;
-    font-weight: bolder;
-    text-transform: uppercase;
-}
-
 .reportList {
     display: flex;
     flex-direction: column;
@@ -44,6 +36,7 @@ h1 {
 .reportTitle,
 .reportDescription,
 .reportFile {
+    cursor: pointer;
     padding: 2px;
     border-left: 1px #5C6871 solid;
     margin-left: -1px;
@@ -59,7 +52,6 @@ h1 {
 }
 
 .reportFile {
-    cursor: pointer;
     width: 400px;
 }
 

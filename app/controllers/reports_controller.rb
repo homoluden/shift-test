@@ -40,7 +40,7 @@ class ReportsController < ApplicationController
 
     respond_to do |format|
       if @report.save
-        format.html { redirect_to @report, notice: 'Report was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Report was successfully created.' }
         format.json { render :show, status: :created, location: @report }
       else
         format.html { render :new }
@@ -52,12 +52,10 @@ class ReportsController < ApplicationController
   # PATCH/PUT /reports/1
   # PATCH/PUT /reports/1.json
   def update
-    helpers.upd_file_meta
-    helpers.upd_file_url
-
     respond_to do |format|
       if @report.update(report_params)
-        format.html { redirect_to @report, notice: 'Report was successfully updated.' }
+        helpers.upd_file_meta
+        format.html { redirect_to root_path, notice: 'Report was successfully updated.' }
         format.json { render :show, status: :ok, location: @report }
       else
         format.html { render :edit }
