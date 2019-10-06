@@ -13,3 +13,21 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+div.loggedInRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+div.loggedInRow > a {
+    margin-left: 15px;
+}

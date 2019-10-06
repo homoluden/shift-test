@@ -12,9 +12,10 @@
 
   <body>
     <% if current_user %>
-      Logged in as <%= current_user.email %>.
-      <%= link_to "Log Out", logout_path %>
-      <br>
+      <div class="loggedInRow">
+        Logged in as <%= current_user.email %>.
+        <%= link_to "Log Out", logout_path %>
+      </div>
       <%= yield %>
     <% else %>
       <% if current_page?(login_path) %>

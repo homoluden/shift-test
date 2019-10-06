@@ -5,8 +5,9 @@ import { Provider } from 'react-redux'
 import store from "../report_list/redux/store"
 
 
-import ReportListPresenter from "../report_list/ReportListPresenter";
-import ReportListPager from "../report_list/ReportListPager";
+import ReportListPresenter from "../report_list/ReportListPresenter"
+import ReportListPager from "../report_list/ReportListPager"
+import NewReportLink from '../report_list/NewReportLink'
 
 const ReportList = () => {
 
@@ -15,6 +16,7 @@ const ReportList = () => {
       <Fragment>
         <ReportListPresenter />
         <ReportListPager />
+        <NewReportLink />
       </Fragment>
     </Provider>
   );
