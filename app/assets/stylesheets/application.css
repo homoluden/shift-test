@@ -19,6 +19,8 @@ body {
     background-color: white;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    color: #5C6871;
 }
 
 div.loggedInRow {

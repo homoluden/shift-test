@@ -14,6 +14,7 @@ const ReportList = () => {
   return (
     <Provider store={store}>
       <Fragment>
+        <h1>Reports</h1>
         <ReportListPresenter />
         <ReportListPager />
         <NewReportLink />
