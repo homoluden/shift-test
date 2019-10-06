@@ -14,7 +14,7 @@ const mapStateToProps = ({ reports }) => {
 const ReportListPresenter = props => {
     return (
         <ul className="reportList">
-            {props.reports.list.map(r => (
+            {props.reports.map(r => (
                 <ReportRow key={`report${r.id}`} report={r} />
             ))}
         </ul>

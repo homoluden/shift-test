@@ -1,4 +1,19 @@
-import { combineReducers } from "redux";
-import reports from "./reports";
+import { SET_REPORTS } from "../actionTypes";
 
-export default combineReducers({ reports });
+const initialState = {
+  reports: []
+};
+
+export default function(state = initialState, action) {
+  switch (action.type) {
+    case SET_REPORTS: {
+      const { reports } = action.payload;
+      return {
+        ...state,
+        reports
+      };
+    }
+    default:
+      return state;
+  }
+}
