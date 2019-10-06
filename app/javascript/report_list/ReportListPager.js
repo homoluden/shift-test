@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { loadReports } from "../report_list/redux/actions"
 
-import style from './style.css'
+import './style.css'
 
 const mapStateToProps = ({ reports }) => {
     return {
@@ -52,10 +52,10 @@ class ReportListPager extends React.Component {
 
     render() {
         return (
-            <div className={style.reportsPagerRoot}>
-                <span>Page: </span>
+            <div className="reportsPagerRoot">
+                <span className="pageLabel">Page: </span>
                 <input value={this.state.page} onChange={this.changePage} />
-                <span>Page Size: </span>
+                <span className="pageSizeLabel">Page Size: </span>
                 <input value={this.state.perPage} onChange={this.changePageSize} />
             </div>
         );

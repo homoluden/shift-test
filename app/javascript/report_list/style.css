@@ -1,9 +1,59 @@
-.reportsListRoot {
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.reportList {
     display: flex;
     flex-direction: column;
+    list-style: none;
+    width: 100%;
+    margin: 20px 10px;
+    padding: 0;
+    border: 1px gray solid;
+    font-family: Tahoma;
 }
 
 .reportsPagerRoot {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+}
+
+.pageLabel,
+.pageSizeLabel {
+    margin-right: 5px;
+}
+
+.pageSizeLabel {
+    margin-left: 15px;
+}
+
+.reportRow {
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    border-top: 1px gray solid;
+    margin-top: -1px;
+}
+
+
+.reportTitle,
+.reportDescription,
+.reportFile {
+    padding: 2px;
+    border-left: 1px gray solid;
+    margin-left: -1px;
+}
+
+
+.reportTitle {
+    width: 200px;
+}
+
+.reportDescription {
+    width: 100%;
+}
+
+.reportFile {
+    width: 400px;
 }

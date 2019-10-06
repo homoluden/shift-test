@@ -1,5 +1,9 @@
 import React from 'react'
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'
+
+import ReportRow from './ReportRow'
+
+import './style.css'
 
 const mapStateToProps = ({ reports }) => {
     return {
@@ -9,9 +13,9 @@ const mapStateToProps = ({ reports }) => {
 
 const ReportListPresenter = props => {
     return (
-        <ul>
+        <ul className="reportList">
             {props.reports.list.map(r => (
-                <li key={`report${r.id}`}>{r.title}</li>
+                <ReportRow key={`report${r.id}`} report={r} />
             ))}
         </ul>
     );
