@@ -10,10 +10,12 @@
   <%= form.text_area :description %>
   </div>
 
-  <div class="field">
-  <%= form.label :file %>
-  <%= form.file_field :file, :accept => '.pdf,.png,.tiff,.txt' %>
-  </div>
+  <% if report.new_record? %>
+    <div class="field">
+    <%= form.label :file %>
+    <%= form.file_field :file, :accept => '.pdf,.png,.tiff,.txt' %>
+    </div>
+  <% end %>
 
   <% if report.errors.any? %>
     <div id="error_explanation">
