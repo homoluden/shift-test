@@ -59,6 +59,7 @@ h1 {
 }
 
 .reportFile {
+    cursor: pointer;
     width: 400px;
 }
 

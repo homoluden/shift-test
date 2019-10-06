@@ -1,5 +1,5 @@
 class ReportsController < ApplicationController
-  before_action :set_report, only: [:show, :edit, :update, :destroy]
+  before_action :set_report, only: [:show, :file, :edit, :update, :destroy]
 
   # GET /reports
   # GET /reports.json
@@ -12,6 +12,15 @@ class ReportsController < ApplicationController
   # GET /reports/1
   # GET /reports/1.json
   def show
+  end
+
+  # GET /reports/1/file
+  # GET /reports/1/file.json
+  def file
+    respond_to do |format|
+      format.html { render :file, :layout => nil }
+      format.json { render json: url_for(@report.file) }
+    end
   end
 
   # GET /reports/new
@@ -27,7 +36,8 @@ class ReportsController < ApplicationController
   # POST /reports.json
   def create
     @report = Report.new(report_params)
-    helpers.upd_file_meta()
+    helpers.upd_file_meta
+
     respond_to do |format|
       if @report.save
         format.html { redirect_to @report, notice: 'Report was successfully created.' }
@@ -42,7 +52,9 @@ class ReportsController < ApplicationController
   # PATCH/PUT /reports/1
   # PATCH/PUT /reports/1.json
   def update
-    helpers.upd_file_meta(@report)
+    helpers.upd_file_meta
+    helpers.upd_file_url
+
     respond_to do |format|
       if @report.update(report_params)
         format.html { redirect_to @report, notice: 'Report was successfully updated.' }
